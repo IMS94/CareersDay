@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CareersDay/bin/Debug
+/.vs
+/CareersDay/obj/Debug
+/CareersDay/Package
+/CareersDay/pkg/Debug/CareersDay
+/CareersDay/pkgobj/Debug
+/packages/jQuery.1.9.1

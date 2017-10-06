@@ -8,9 +8,10 @@
     <File Path="Scripts\jquery-1.9.1.intellisense.js" Url="Scripts/jquery-1.9.1.intellisense.js" ReplaceContent="TRUE" />
     <File Path="Scripts\App\app.js" Url="Scripts/App/app.js" ReplaceContent="TRUE" />
     <File Path="Scripts\App\home.controller.js" Url="Scripts/App/home.controller.js" ReplaceContent="TRUE" />
-    <File Path="Scripts\App\user.service.js" Url="Scripts/App/user.service.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\App\company.service.js" Url="Scripts/App/company.service.js" ReplaceContent="TRUE" />
     <File Path="Scripts\App\student.controller.js" Url="Scripts/App/student.controller.js" ReplaceContent="TRUE" />
     <File Path="Scripts\App\admin.controller.js" Url="Scripts/App/admin.controller.js" ReplaceContent="TRUE" />
     <File Path="Scripts\App\company.controller.js" Url="Scripts/App/company.controller.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\App\user.service.js" Url="Scripts/App/user.service.js" ReplaceContent="TRUE" />
   </Module>
 </Elements>

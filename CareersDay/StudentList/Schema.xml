@@ -4,12 +4,12 @@
     <ContentTypes>
       
       
-    <ContentTypeRef ID="0x01">
+    <ContentType ID="0x010009cfedb9223d4d88a1d3b8e42a356661" Name="ListFieldsContentType"><FieldRefs><FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" /><FieldRef ID="{67f78b1f-696c-43bb-8cd6-b16221ef94e1}" Name="Name1" /></FieldRefs></ContentType><ContentTypeRef ID="0x01">
         <Folder TargetName="Item" />
       </ContentTypeRef><ContentTypeRef ID="0x0120" /></ContentTypes>
     <Fields>
       
-    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources:core,Title;" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /></Fields>
+    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="Email" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /><Field Name="Name1" ID="{67f78b1f-696c-43bb-8cd6-b16221ef94e1}" DisplayName="Name" Type="Text" /></Fields>
     <Views>
       
       
@@ -37,7 +37,7 @@
         <RowLimit Paged="TRUE">30</RowLimit>
         <ViewFields>
           
-        <FieldRef Name="LinkTitle"></FieldRef></ViewFields>
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="Name1" /></ViewFields>
         <Query>
           <OrderBy>
             

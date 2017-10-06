@@ -9,9 +9,10 @@
     <ProjectItemFile Source="jquery-1.9.1.intellisense.js" Target="Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="App\app.js" Target="Scripts\App\" Type="ElementFile" />
     <ProjectItemFile Source="App\home.controller.js" Target="Scripts\App\" Type="ElementFile" />
-    <ProjectItemFile Source="App\user.service.js" Target="Scripts\App\" Type="ElementFile" />
+    <ProjectItemFile Source="App\company.service.js" Target="Scripts\App\" Type="ElementFile" />
     <ProjectItemFile Source="App\student.controller.js" Target="Scripts\App\" Type="ElementFile" />
     <ProjectItemFile Source="App\admin.controller.js" Target="Scripts\App\" Type="ElementFile" />
     <ProjectItemFile Source="App\company.controller.js" Target="Scripts\App\" Type="ElementFile" />
+    <ProjectItemFile Source="App\user.service.js" Target="Scripts\App\" Type="ElementFile" />
   </Files>
 </ProjectItem>

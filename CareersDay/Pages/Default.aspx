@@ -23,6 +23,7 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../Scripts/App/app.js"></script>
     <script type="text/javascript" src="../Scripts/App/user.service.js"></script>
+    <script type="text/javascript" src="../Scripts/App/company.service.js"></script>
     <script type="text/javascript" src="../Scripts/App/home.controller.js"></script>
     <script type="text/javascript" src="../Scripts/App/student.controller.js"></script>
     <script type="text/javascript" src="../Scripts/App/admin.controller.js"></script>

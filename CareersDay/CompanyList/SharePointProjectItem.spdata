@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ProjectItem Type="Microsoft.VisualStudio.SharePoint.ListDefinition" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
   <Files>
-    <ProjectItemFile Source="Elements.xml" Target="StudentList\" Type="ElementManifest" />
-    <ProjectItemFile Source="Schema.xml" Target="StudentList\" Type="ElementFile" />
+    <ProjectItemFile Source="Elements.xml" Target="CompanyList\" Type="ElementManifest" />
+    <ProjectItemFile Source="Schema.xml" Target="CompanyList\" Type="ElementFile" />
   </Files>
   <ExtensionData>
-    <ExtensionDataItem Key="Microsoft.VisualStudio.SharePoint.ListSettings.ListFieldsContentTypeID" Value="0x010009cfedb9223d4d88a1d3b8e42a356661" />
+    <ExtensionDataItem Key="Microsoft.VisualStudio.SharePoint.ListSettings.ListFieldsContentTypeID" Value="0x0100b243646649714eae93c009c5e5a0c3f8" />
   </ExtensionData>
 </ProjectItem>

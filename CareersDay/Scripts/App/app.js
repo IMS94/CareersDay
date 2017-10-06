@@ -1,6 +1,4 @@
-﻿'use strict';
-
-var app = angular.module('careersDayApp', [
+﻿var app = angular.module('careersDayApp', [
     // Angular modules 
 
     // Custom modules 

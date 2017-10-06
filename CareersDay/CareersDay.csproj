@@ -42,6 +42,15 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="CompanyList\CompanyListInstance\Elements.xml" />
+    <Content Include="CompanyList\Elements.xml" />
+    <Content Include="CompanyList\Schema.xml" />
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature2\Feature2.Template.xml">
+      <DependentUpon>Feature2.feature</DependentUpon>
+    </Content>
     <Content Include="Images\magnify.gif" />
     <Content Include="Pages\student.html" />
     <Content Include="Pages\company.html" />
@@ -52,15 +61,26 @@
     <Content Include="Scripts\App\company.controller.js" />
     <Content Include="Scripts\App\student.controller.js" />
     <Content Include="Scripts\App\user.service.js" />
+    <Content Include="Scripts\App\company.service.js" />
     <Content Include="Scripts\App\home.controller.js" />
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="StudentList\Elements.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="StudentList\Elements.xml" />
     <Content Include="StudentList\Schema.xml" />
     <Content Include="StudentList\StudentListInstance\Elements.xml" />
+    <None Include="CompanyList\CompanyListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{68cc5933-5250-4e80-af5e-33b27abbdc2e}</SharePointProjectItemId>
+    </None>
+    <None Include="CompanyList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7ceec6dd-8255-49c2-b4c0-723f3af48721}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{34781053-6acb-4ad0-ba11-825d9fa02c97}</FeatureId>
+    </None>
+    <None Include="Features\Feature2\Feature2.feature">
+      <FeatureId>{08990fef-31de-486d-8116-9e37141093c2}</FeatureId>
+    </None>
     <None Include="packages.config" />
     <None Include="Pages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{049c1544-a4fb-4eab-9029-543b13e73b15}</SharePointProjectItemId>
@@ -68,10 +88,10 @@
     <Content Include="Pages\Elements.xml" />
     <Content Include="Pages\Default.aspx" />
     <None Include="StudentList\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{553af941-ea23-4014-acf9-b56767c5b06e}</SharePointProjectItemId>
+      <SharePointProjectItemId>{8ee8a45d-a4e2-45a0-93b7-1ba11dd83022}</SharePointProjectItemId>
     </None>
     <None Include="StudentList\StudentListInstance\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{aebf4631-e177-486e-b98e-74265aff4d29}</SharePointProjectItemId>
+      <SharePointProjectItemId>{255db62c-6ca5-4392-8c21-2a95855a37e4}</SharePointProjectItemId>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -104,12 +124,6 @@
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
-    </None>
-    <None Include="Features\CareersDayFeature\CareersDayFeature.feature">
-      <FeatureId>{966ddc27-4baa-4a52-a68d-90d53d5d0776}</FeatureId>
-    </None>
-    <None Include="Features\CareersDayFeature\CareersDayFeature.Template.xml">
-      <DependentUpon>CareersDayFeature.feature</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

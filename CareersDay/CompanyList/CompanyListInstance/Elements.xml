@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="CompanyList" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/CompanyList" Description="My List Instance">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="Company Name">Sysco Labs</Field>
+          <Field Name="Bio">A Company</Field>
+        </Row>
+        <Row>
+          <Field Name="Company Name">Virtusa</Field>
+          <Field Name="Bio">A Company</Field>
+        </Row>
+        <Row>
+          <Field Name="Company Name">WSO2</Field>
+          <Field Name="Bio">A Company</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

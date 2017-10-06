@@ -1,1 +1,16 @@
 ﻿/* Place custom styles below */
+#suiteBarDelta {
+    display: none
+}
+
+#s4-titlerow {
+    display: none
+}
+
+#s4-ribbonrow {
+    display: none
+}
+
+#titleAreaBox {
+    display: none
+}

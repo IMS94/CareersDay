@@ -1,4 +1,4 @@
 ﻿angular.module("careersDayApp")
-    .controller("companyController", ["$scope", "$state", "$interval", "userService", function ($scope, $state, $interval, userService) {
+    .controller("companyController", ["$scope", "$state", "$interval", "companyService", function ($scope, $state, $interval, companyService) {
 
     }]);

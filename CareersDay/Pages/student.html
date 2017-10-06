@@ -1,1 +1,29 @@
-﻿You are a student
+﻿<div class="container-fluid">
+
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+            <div class="panel panel-default" ng-repeat="company in data.companies">
+                <div class="panel-heading" role="tab" id="heading{{$index}}">
+                    <h4 class="panel-title">
+                        <span role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                              href="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}" style="cursor:pointer">
+                            {{company.name}}
+                        </span>
+                    </h4>
+                </div>
+                <div id="collapse{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index}}">
+                    <div class="panel-body">
+                        <div class="alert alert-info" role="alert">
+                            {{company.description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

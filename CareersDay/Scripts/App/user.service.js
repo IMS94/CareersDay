@@ -1,7 +1,10 @@
 ﻿angular.module("careersDayApp").factory("userService", function () {
     var factory = {
         userLoaded: false,
-        userEmail: null
+        user: {
+            email: null,
+            name: null
+        }
     };
 
     var userType = "Student"; // Admin, Company or Student(default)
@@ -18,6 +21,7 @@
         // It is assumed that one person can only be in one group
         while (enumerator.moveNext()) {
             var group = enumerator.get_current().get_title();
+            console.log(group);
 
             if (group === "Admin" || group === "Company") {
                 // Admin person
@@ -32,7 +36,12 @@
     // Get user email
     clientContext.load(user);
     clientContext.executeQueryAsync(function () {
-        factory.userEmail = user.get_email();
+        factory.user = {
+            email: user.get_email(),
+            name: user.get_title()
+        };
+        console.log(user.get_title());
+
         factory.userLoaded = true;
     }, onError);
 
@@ -41,7 +50,7 @@
     }
 
     function onError(err) {
-        console.log(err);
+        console.error(err);
         alert("An error has occured while getting data from the server. This may be due to bad internet connectino or server overload. Please perform the task again.");
     }
 

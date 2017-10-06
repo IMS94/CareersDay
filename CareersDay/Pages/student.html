@@ -2,12 +2,16 @@
 
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
 
+        <div class="alert alert-info" role="alert">
+            Hello {{data.user.name}}!
+        </div>
+
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
             <div class="panel panel-default" ng-repeat="company in data.companies">
                 <div class="panel-heading" role="tab" id="heading{{$index}}">
                     <h4 class="panel-title">
-                        <span role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                        <span role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" ng-click="getCompanyStatus($index)"
                               href="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}" style="cursor:pointer">
                             {{company.name}}
                         </span>
@@ -15,8 +19,27 @@
                 </div>
                 <div id="collapse{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index}}">
                     <div class="panel-body">
-                        <div class="alert alert-info" role="alert">
+                        <p>
                             {{company.description}}
+                        </p>
+
+                        <p ng-if="company.cvUploaded">CV Uploaded</p>
+                        <p ng-if="!company.cvUploaded">CV Not Uploaded</p>
+
+                        <div class="form-horizontal">
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon{{$index}}">Upload CV </span>
+                                    <input id="cv{{$index}}" accept=".pdf" type="file" class="form-control"
+                                             value="" name="cv{{$index}}" aria-describedby="basic-addon{{$index}}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-primary btn-block" ng-click="submitCV($index)">
+                                    Submit
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

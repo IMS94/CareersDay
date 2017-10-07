@@ -47,4 +47,30 @@
         </div>
     </div>
 
+    <!-- Modal for showing popup dialogs-->
+    <div id="dialogModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="modalHeader">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert" role="alert" id="modalBody">
+                    </div>
+
+                    <div class="progress" id="progressBar">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                            <span class="sr-only">In progress ...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </asp:Content>

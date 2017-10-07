@@ -15,22 +15,22 @@
 
                 <div class="container-fluid collapse" id="updateCompaniesDiv">
                     <div class="form-horizontal">
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">Paste CSV</span>
                                 <textarea rows="5" class="form-control" id="companyInfo" ng-model="data.companyCSV" aria-describedby="basic-addon1"></textarea>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
-                            <button type="button" class="btn btn-primary btn-block" ng-click="updateCompanies()">
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary" ng-click="updateCompanies()">
                                 Save
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="container-fluid" ng-cloak>
+                <div class="container-fluid" style="margin-top:10px" ng-cloak>
                     <table id="companiesTable" class="table table-hover display" cellspacing="0">
                         <thead>
                             <tr>
@@ -64,14 +64,14 @@
 
                 <div class="container-fluid collapse" id="updateStudentsDiv">
                     <div class="form-horizontal">
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon2">Paste CSV</span>
                                 <textarea rows="5" class="form-control" id="studentInfo" ng-model="data.studentCSV" aria-describedby="basic-addon2"></textarea>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <button type="button" class="btn btn-primary btn-block" ng-click="updateStudents()">
                                 Save
                             </button>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
 
-                <div class="container-fluid" ng-cloak>
+                <div class="container-fluid" style="margin-top:10px" ng-cloak>
                     <table id="studentsTable" class="table table-hover display" cellspacing="0">
                         <thead>
                             <tr>

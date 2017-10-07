@@ -37,7 +37,7 @@
 
         clientContext.load(collListItem);
         clientContext.executeQueryAsync(function () {
-            console.log("Deleting existing students");
+            console.log("StudentService: Deleting existing students");
             var listItemEnumerator = collListItem.getEnumerator();
 
             var tmpArray = [];
@@ -51,7 +51,7 @@
 
             // Now execute the delete operation and perform the add operation
             clientContext.executeQueryAsync(function () {
-                console.log("Adding new students");
+                console.log("StudentService: Adding new students");
                 // Add every element in the $scope.studentArray
                 for (var i in students) {
                     var itemCreationInfo = new SP.ListItemCreationInformation();
@@ -62,7 +62,7 @@
                 }
 
                 clientContext.executeQueryAsync(function () {
-                    console.log("New students added successfully");
+                    console.log("StudentService: New students added successfully");
                     callback();
                 }, onError);
 
@@ -71,14 +71,14 @@
     }
 
     factory.loadStudents(function (students) {
-        console.log(students);
+        //console.log(students);
         factory.students = students;
         factory.studentsLoaded = true;
     });
 
     function onError(err) {
         console.log(err);
-        alert("An error has occured while getting data from the server. This may be due to bad internet connection or server overload. Please perform the task again.");
+        NotificationService.showDefaultErrorMessage();
     }
 
     return factory;

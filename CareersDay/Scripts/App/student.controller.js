@@ -7,7 +7,7 @@
 
             // Unauthorized ?
             if (!userService.isStudent()) {
-                console.error("Not a student");
+                console.error("StudentController: Not a student");
                 $state.transitionTo("home");
             }
 
@@ -24,7 +24,6 @@
              * Get the status (that is whether a CV for that company is uploaded or not)
              */
             $scope.getCompanyStatus = function (index) {
-                console.log(hostWebUrl);
                 var hostClientContext = new SP.AppContextSite(clientContext, hostWebUrl);
                 //var cvList = hostClientContext.get_web().get_lists();
                 var cvList = hostClientContext.get_web().get_lists().getByTitle("CareersDayCVs");
@@ -56,21 +55,19 @@
                     "<Eq><FieldRef Name='Email' /><Value Type='Text'>" + $scope.data.user.email + "</Value></Eq>" +
                     "<Eq><FieldRef Name='Company' /><Value Type='Text'>" + $scope.data.companies[index].name + "</Value></Eq>" +
                     "</And></Where></Query></View>";
-                console.log(query);
-
+                
                 camlQuery.set_viewXml(query);
                 var items = cvList.getItems(camlQuery);
 
                 clientContext.load(items);
                 clientContext.executeQueryAsync(function () {
-                    console.log("CV status request successful");
+                    console.log("StudentController: CV status request successful");
                     var enumerator = items.getEnumerator();
 
                     $scope.data.companies[index].cvUploaded = false;
                     while (enumerator.moveNext()) {
                         var tempCompany = enumerator.get_current().get_item("Company");
-                        console.log(tempCompany);
-                        console.log(enumerator.get_current().get_fieldValues());
+                        
                         $scope.data.companies[index].cvUploaded = true;
                         $scope.data.companies[index].cvLink = enumerator.get_current().get_item("FileRef");
                     }
@@ -85,9 +82,11 @@
             $scope.submitCV = function (index) {
                 // check the file extension
                 if ($('#cv' + index).val().split('.')[1] != 'pdf') {
-                    console.error("Not a pdf");
+                    NotificationService.showErrorMessage("Not a PDF", "Please upload you CV in PDF format");
                     return;
                 }
+
+                NotificationService.showInfoMessage("CV is being uploaded","Please wait until the CV is uploaded", true);
 
                 var hostClientContext = new SP.AppContextSite(clientContext, hostWebUrl);
                 var internshipList = hostClientContext.get_web().get_lists().getByTitle("CareersDayCVs");
@@ -137,7 +136,8 @@
                                     // Change the display name and title of the list item.
                                     var changeItem = updateListItem(listItem.d.__metadata);
                                     changeItem.done(function (data, status, xhr) {
-                                        console.log("CV uploaded successfully");
+                                        fileInput.val("");
+                                        NotificationService.showSuccessMessage("CV Uploaded","Your CV uploaded successfully. Please verify by downloading the uploaded CV");
 
                                         // Change the upload status
                                         $scope.getCompanyStatus(index);
@@ -252,7 +252,7 @@
 
             function onError(err) {
                 console.error(err);
-                alert("An error has occured while getting data from the server. This may be due to bad internet connectino or server overload. Please perform the task again.");
+                NotificationService.showDefaultErrorMessage();
             }
 
         }]);

@@ -3,32 +3,46 @@
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
 
         <div class="alert alert-info" role="alert">
-            Hello {{data.user.name}}!
+            <p>
+                <strong>
+                    Hello {{data.user.name}}!
+                </strong>
+            </p>
+
+            <p>
+                Please select (click) the company that you want to apply to. A panel will appear to upload your CV. Marked with
+                '<i class="glyphicon glyphicon-ok text-success"></i>' are the companies you have already applied for.
+            </p>
         </div>
 
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
             <div class="panel panel-default" ng-repeat="company in data.companies">
-                <div class="panel-heading" role="tab" id="heading{{$index}}">
-                    <h4 class="panel-title">
-                        <span role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" ng-click="getCompanyStatus($index)"
-                              href="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}" style="cursor:pointer">
-                            {{company.name}}
-                        </span>
+
+                <div class="panel-heading" role="tab" id="heading{{$index}}" ng-init="getCompanyStatus($index)">
+                    <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}" style="cursor:pointer">
+                        {{company.name}}
+
+                        <i ng-if="company.cvUploaded" class="glyphicon glyphicon-ok text-success pull-right"></i>
+
                     </h4>
                 </div>
+
                 <div id="collapse{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index}}">
                     <div class="panel-body">
-                        <p>
+                        <p class="well">
                             {{company.description}}
                         </p>
 
-                        <div ng-if="company.cvUploaded">
-                            <p>CV Uploaded</p>
-                            <a class="btn btn-primary" target="_blank" href="{{company.cvLink}}">Download</a>
+                        <div class="alert alert-success" ng-if="company.cvUploaded">
+                            You have already submitted a CV to this company.
+                            <a target="_blank" href="{{company.cvLink}}">Download it from here</a>
                         </div>
 
-                        <p ng-if="!company.cvUploaded">CV Not Uploaded</p>
+                        <div class="alert alert-warning" ng-if="!company.cvUploaded">
+                            No CV has been uploaded for this company
+                        </div>
 
                         <div class="form-horizontal">
                             <div class="col-md-8">

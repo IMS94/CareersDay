@@ -24,6 +24,8 @@
                 console.log("CompanyController: %d CVs Loaded", cvs.length);
                 $scope.data.cvs = cvs;
                 $scope.$apply();
+
+                $('#cvTable').DataTable();
             });
 
         }]);

@@ -4,7 +4,7 @@
 }
 
 #s4-titlerow {
-    display: none
+    display: none !important
 }
 
 #s4-ribbonrow {
@@ -13,4 +13,12 @@
 
 #titleAreaBox {
     display: none
+}
+
+table tr td {
+    text-align: center
+}
+
+table tr th {
+    text-align: center
 }

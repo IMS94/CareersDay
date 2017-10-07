@@ -13,7 +13,7 @@
 
         clientContext.load(collListItem);
         clientContext.executeQueryAsync(function () {
-            console.log("Company list fetching successful");
+            console.log("CompanyService: Company list fetching successful");
             var listItemEnumerator = collListItem.getEnumerator();
 
             var companies = [];
@@ -38,7 +38,7 @@
 
         clientContext.load(collListItem);
         clientContext.executeQueryAsync(function () {
-            console.log("Deleting existing companies");
+            console.log("CompanyService: Deleting existing companies");
             var listItemEnumerator = collListItem.getEnumerator();
 
             var tmpArray = [];
@@ -52,7 +52,7 @@
 
             // Now execute the delete operation and perform the add operation
             clientContext.executeQueryAsync(function () {
-                console.log("Adding new companies");
+                console.log("CompanyService: Adding new companies");
                 // Add every element in the $scope.studentArray
                 for (var i in companies) {
                     var itemCreationInfo = new SP.ListItemCreationInformation();
@@ -63,7 +63,7 @@
                 }
 
                 clientContext.executeQueryAsync(function () {
-                    console.log("New companies added successfully");
+                    console.log("CompanyService: New companies added successfully");
                     callback();
                 }, onError);
 
@@ -72,15 +72,15 @@
     }
 
     factory.loadCompanies(function (companies) {
-        console.log("Companies loaded");
-        console.log(companies);
+        console.log("CompanyService: Companies loaded");
+        //console.log(companies);
         factory.companies = companies;
         factory.companiesLoaded = true;
     });
 
     function onError(err) {
         console.log(err);
-        alert("An error has occured while getting data from the server. This may be due to bad internet connection or server overload. Please perform the task again.");
+        NotificationService.showDefaultErrorMessage();
     }
 
     return factory;

@@ -2,6 +2,18 @@
 
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
 
+        <div class="alert alert-info" role="alert">
+            <p>
+                <strong>
+                    Hello {{data.user.name}}!
+                </strong>
+            </p>
+
+            <p>
+                Following are the CVs of the students who have applied for your company. You can download them from the link provided in front of each student.
+            </p>
+        </div>
+
         <div class="panel panel-default" ng-cloak>
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -11,23 +23,29 @@
 
             <div class="panel-body">
                 <div class="container-fluid">
-                    <table id="cvTable" class="table table-hover display" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Student Email</th>
-                                <th>CV</th>
-                            </tr>
-                        </thead>
 
-                        <tbody>
-                            <tr ng-repeat="cv in data.cvs">
-                                <td>{{cv.email}}</td>
-                                <td>
-                                    <a href="{{cv.link}}" target="_blank">Download</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+
+                        <table id="cvTable" class="table table-hover table-condensed table-striped display" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Student Email</th>
+                                    <th>CV</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr ng-repeat="cv in data.cvs">
+                                    <td>{{cv.email}}</td>
+                                    <td>
+                                        <a href="{{cv.link}}" target="_blank">Download</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
                 </div>
             </div>
         </div>

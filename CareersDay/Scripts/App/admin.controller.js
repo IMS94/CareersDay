@@ -28,9 +28,11 @@
 
             $scope.updateCompanies = function () {
                 if (!$scope.data.companyCSV || $scope.data.companyCSV.trim().length == 0) {
-                    console.error("No CSV has been pasted");
+                    NotificationService.showErrorMessage("No CSV", "No CSV has been pasted");
                     return;
                 }
+
+                NotificationService.showInfoMessage("Updating Companies", "Please wait until the company list is updated...", true);
 
                 var csv = $scope.data.companyCSV.trim();
                 var lines = csv.split("\n");
@@ -44,16 +46,18 @@
                 }
 
                 companyService.uploadCompanies(companies, function () {
-                    console.log("New companies added successfully");
+                    NotificationService.showSuccessMessage("Companies Added Successfully", "New companies added successfully");
                     $state.reload();
                 });
             }
 
             $scope.updateStudents = function () {
                 if (!$scope.data.studentCSV || $scope.data.studentCSV.trim().length == 0) {
-                    console.error("No CSV has been pasted");
+                    NotificationService.showErrorMessage("No CSV", "No CSV has been pasted");
                     return;
                 }
+
+                NotificationService.showInfoMessage("Updating Students", "Please wait until the student list is updated...", true);
 
                 var csv = $scope.data.studentCSV.trim();
                 var lines = csv.split("\n");
@@ -67,13 +71,13 @@
                 }
 
                 studentService.uploadStudents(students, function () {
-                    console.log("New companies added successfully");
+                    NotificationService.showSuccessMessage("Students Added Successfully", "New students added successfully");
                     $state.reload();
                 });
             }
 
             function updateCompanies(companies) {
-                console.log("Updating companies table");
+                console.log("AdminController: Updating companies table");
                 $scope.data.companies = companies;
                 $scope.$apply();
 
@@ -81,7 +85,7 @@
             }
 
             function updateStudents(students) {
-                console.log("Updating students");
+                console.log("AdminController: Updating students");
                 $scope.data.students = students;
                 $scope.$apply();
 

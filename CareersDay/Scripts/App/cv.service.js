@@ -37,7 +37,7 @@
 
     function onError(err) {
         console.error(err);
-        alert("An error has occured while getting data from the server. This may be due to bad internet connectino or server overload. Please perform the task again.");
+        NotificationService.showDefaultErrorMessage();
     }
 
     return factory;

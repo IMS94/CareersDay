@@ -1,1 +1,37 @@
-﻿You are a company
+﻿<div class="container-fluid">
+
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+        <div class="panel panel-default" ng-cloak>
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    CVs submitted for '{{data.company.name}}'
+                </h4>
+            </div>
+
+            <div class="panel-body">
+                <div class="container-fluid">
+                    <table id="cvTable" class="table table-hover display" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Student Email</th>
+                                <th>CV</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="cv in data.cvs">
+                                <td>{{cv.email}}</td>
+                                <td>
+                                    <a href="{{cv.link}}" target="_blank">Download</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

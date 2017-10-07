@@ -14,5 +14,6 @@
     <File Path="Scripts\App\company.controller.js" Url="Scripts/App/company.controller.js" ReplaceContent="TRUE" />
     <File Path="Scripts\App\user.service.js" Url="Scripts/App/user.service.js" ReplaceContent="TRUE" />
     <File Path="Scripts\App\student.service.js" Url="Scripts/App/student.service.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\App\cv.service.js" Url="Scripts/App/cv.service.js" ReplaceContent="TRUE" />
   </Module>
 </Elements>

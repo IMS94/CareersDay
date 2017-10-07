@@ -4,6 +4,15 @@
         user: {
             email: null,
             name: null
+        },
+        isAdmin: function () {
+            return false;
+        },
+        isCompany: function () {
+            return false;
+        },
+        isStudent: function () {
+            return false;
         }
     };
 
@@ -16,13 +25,13 @@
     // Get user groups
     clientContext.load(groups);
     clientContext.executeQueryAsync(function () {
-        console.log("User groups fetched successfully");
+        console.log("UserService: User groups fetched successfully");
 
         var enumerator = groups.getEnumerator();
         // It is assumed that one person can only be in one group
         while (enumerator.moveNext()) {
             var group = enumerator.get_current().get_title();
-            console.log(group);
+            console.log("UserService: User group is - %s", group);
             if (group === "Admin" || group === "Company") {
                 // Admin person
                 userType = group;
@@ -39,17 +48,16 @@
      * Loads user email and title
      */
     function loadUser() {
-        console.log("Loading user");
+        console.log("UserService: Loading user");
 
         clientContext.load(user);
         clientContext.executeQueryAsync(function () {
-            console.log("User email fetched successfully");
+            console.log("UserService: User email %s fetched successfully", user.get_email());
 
             factory.user = {
                 email: user.get_email(),
                 name: user.get_title()
             };
-            console.log(user.get_title());
 
             loadFromUserType();
         }, onError);
@@ -59,7 +67,7 @@
      * Loads additional information from user type. That is, load company information if user type is 'Company'. Student info is "Student".
      */
     function loadFromUserType() {
-        console.log("Loading additional information for user type");
+        console.log("UserService: Loading additional information for user type: %s", userType);
 
         factory.isCompany = function () {
             return userType === "Company";
@@ -75,19 +83,19 @@
 
         if (userType === "Student") {
             // Then, this user must be in the student list as well
-            clientContext.get_web().get_lists().getByTitle("StudentList");
+            var studentList = clientContext.get_web().get_lists().getByTitle("StudentList");
             var camlQuery = new SP.CamlQuery();
             var query = "<View><Query><Where>" +
                 "<Eq><FieldRef Name='Title' /><Value Type='Text'>" + factory.user.email + "</Value></Eq>" +
                 "</Where></Query></View>";
             console.log(query);
             camlQuery.set_viewXml(query);
-            var entries = companyList.getItems(camlQuery);
+            var entries = studentList.getItems(camlQuery);
 
             clientContext.load(entries);
             clientContext.executeQueryAsync(function () {
-                console.log("User information loaded from student list");
-                var enumerator = items.getEnumerator();
+                console.log("UserService: User information loaded from student list");
+                var enumerator = entries.getEnumerator();
                 if (!enumerator.moveNext()) {
                     // not a student
                     factory.isStudent = function () {
@@ -98,10 +106,37 @@
                 }
 
                 factory.userLoaded = true;
+
             }, onError);
+
         } else if (userType === "Company") {
             factory.user.company = factory.user.name;
-            factory.userLoaded = true;
+
+            // Then, this user must be in the student list as well
+            var companyList = clientContext.get_web().get_lists().getByTitle("CompanyList");
+            var camlQuery = new SP.CamlQuery();
+            var query = "<View><Query><Where>" +
+                "<Eq><FieldRef Name='Title' /><Value Type='Text'>" + factory.user.name + "</Value></Eq>" +
+                "</Where></Query></View>";
+            console.log(query);
+            camlQuery.set_viewXml(query);
+            var entries = companyList.getItems(camlQuery);
+
+            clientContext.load(entries);
+            clientContext.executeQueryAsync(function () {
+                console.log("UserService: Company information loaded from company list");
+                var enumerator = entries.getEnumerator();
+                if (!enumerator.moveNext()) {
+                    // not a company
+                    factory.isCompany = function () {
+                        return false;
+                    };
+
+                    userType = null;
+                }
+
+                factory.userLoaded = true;
+            }, onError);
         } else {
             factory.userLoaded = true;
         }

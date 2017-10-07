@@ -65,6 +65,7 @@
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\admin.controller.js" />
     <Content Include="Scripts\App\company.controller.js" />
+    <Content Include="Scripts\App\cv.service.js" />
     <Content Include="Scripts\App\student.service.js" />
     <Content Include="Scripts\App\student.controller.js" />
     <Content Include="Scripts\App\user.service.js" />

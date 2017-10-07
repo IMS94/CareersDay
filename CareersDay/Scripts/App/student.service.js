@@ -13,13 +13,12 @@
 
         clientContext.load(collListItem);
         clientContext.executeQueryAsync(function () {
-            console.log("Student list fetching successful");
             var listItemEnumerator = collListItem.getEnumerator();
 
             var students = [];
             while (listItemEnumerator.moveNext()) {
                 var student = listItemEnumerator.get_current();
-                console.log(student.get_fieldValues());
+                //console.log(student.get_fieldValues());
                 students.push({
                     email: student.get_item('Title'),
                     name: student.get_item('Name1')
@@ -72,7 +71,6 @@
     }
 
     factory.loadStudents(function (students) {
-        console.log("Students loaded");
         console.log(students);
         factory.students = students;
         factory.studentsLoaded = true;

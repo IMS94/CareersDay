@@ -94,10 +94,11 @@
 
             clientContext.load(entries);
             clientContext.executeQueryAsync(function () {
-                console.log("UserService: User information loaded from student list");
+                console.log("UserService: Additional user information loaded from student list");
                 var enumerator = entries.getEnumerator();
                 if (!enumerator.moveNext()) {
                     // not a student
+                    console.log("UserService: User is not a student");
                     factory.isStudent = function () {
                         return false;
                     };
@@ -118,16 +119,16 @@
             var query = "<View><Query><Where>" +
                 "<Eq><FieldRef Name='Title' /><Value Type='Text'>" + factory.user.name + "</Value></Eq>" +
                 "</Where></Query></View>";
-            console.log(query);
             camlQuery.set_viewXml(query);
             var entries = companyList.getItems(camlQuery);
 
             clientContext.load(entries);
             clientContext.executeQueryAsync(function () {
-                console.log("UserService: Company information loaded from company list");
+                console.log("UserService: Additional company information loaded from company list");
                 var enumerator = entries.getEnumerator();
                 if (!enumerator.moveNext()) {
                     // not a company
+                    console.log("UserService: User is not a Company");
                     factory.isCompany = function () {
                         return false;
                     };

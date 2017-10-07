@@ -1,6 +1,6 @@
 ﻿<div class="container-fluid">
 
-    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
 
         <div class="alert alert-info" role="alert">
             <p>
@@ -35,9 +35,16 @@
                             {{company.description}}
                         </p>
 
-                        <div class="alert alert-success" ng-if="company.cvUploaded">
-                            You have already submitted a CV to this company.
-                            <a target="_blank" href="{{company.cvLink}}">Download it from here</a>
+                        <div class="alert alert-success container-fluid" ng-if="company.cvUploaded">
+                            <div class="col-md-11 col-sm-10 col-xs-9">
+                                You have already submitted a CV to this company.
+                                <a target="_blank" href="{{company.cvLink}}">Download it from here</a>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-3">
+                                <button type="button" class="btn btn-default" ng-click="deleteCV($index)">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="alert alert-warning" ng-if="!company.cvUploaded">

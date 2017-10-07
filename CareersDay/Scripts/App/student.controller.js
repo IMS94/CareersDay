@@ -25,37 +25,14 @@
              */
             $scope.getCompanyStatus = function (index) {
                 var hostClientContext = new SP.AppContextSite(clientContext, hostWebUrl);
-                //var cvList = hostClientContext.get_web().get_lists();
                 var cvList = hostClientContext.get_web().get_lists().getByTitle("CareersDayCVs");
-
-                //var listInfoArray = clientContext.loadQuery(cvList, 'Include(Title,Fields.Include(Title,InternalName))');
-
-                //clientContext.executeQueryAsync(function () {
-                //    for (var i = 0; i < listInfoArray.length; i++) {
-                //        var oList = listInfoArray[i];
-                //        var collField = oList.get_fields();
-
-                //        var fieldEnumerator = collField.getEnumerator();
-
-                //        while (fieldEnumerator.moveNext()) {
-                //            var oField = fieldEnumerator.get_current();
-
-                //            var listInfo = '\nList: ' + oList.get_title() +
-                //                '\n\tField Title: ' + oField.get_title() +
-                //                '\n\tField Name: ' + oField.get_internalName();
-                //            console.log(listInfo);
-                //        }
-                //    }
-                //}, onError);
-
-                //return;
 
                 var camlQuery = new SP.CamlQuery();
                 var query = "<View><Query><Where><And>" +
                     "<Eq><FieldRef Name='Email' /><Value Type='Text'>" + $scope.data.user.email + "</Value></Eq>" +
                     "<Eq><FieldRef Name='Company' /><Value Type='Text'>" + $scope.data.companies[index].name + "</Value></Eq>" +
                     "</And></Where></Query></View>";
-                
+
                 camlQuery.set_viewXml(query);
                 var items = cvList.getItems(camlQuery);
 
@@ -67,7 +44,7 @@
                     $scope.data.companies[index].cvUploaded = false;
                     while (enumerator.moveNext()) {
                         var tempCompany = enumerator.get_current().get_item("Company");
-                        
+
                         $scope.data.companies[index].cvUploaded = true;
                         $scope.data.companies[index].cvLink = enumerator.get_current().get_item("FileRef");
                     }
@@ -75,10 +52,47 @@
                     // Since this is a callback, $apply to appear changes in the view
                     $scope.$apply();
 
-                }, onError)
+                }, onError);
 
             }
 
+            /**
+             * Deletes the CV for company given by 'index'
+             */
+            $scope.deleteCV = function (index) {
+                if (!confirm("Are you sure you want to delete this CV?")) {
+                    return;
+                }
+                console.log("StudentController: Deleting CV for company %s", $scope.data.companies[index].name);
+
+                var hostClientContext = new SP.AppContextSite(clientContext, hostWebUrl);
+                var internshipList = hostClientContext.get_web().get_lists().getByTitle("CareersDayCVs");
+
+                var camlQuery = new SP.CamlQuery();
+                var query = "<View><Query><Where><And>" +
+                    "<Eq><FieldRef Name='Email' /><Value Type='Text'>" + $scope.data.user.email + "</Value></Eq>" +
+                    "<Eq><FieldRef Name='Company' /><Value Type='Text'>" + $scope.data.companies[index].name + "</Value></Eq>" +
+                    "</And></Where></Query></View>";
+                camlQuery.set_viewXml(query);
+                items = internshipList.getItems(camlQuery);
+
+                clientContext.load(items);
+                clientContext.executeQueryAsync(function () {
+                    var enumerator = items.getEnumerator();
+                    // There can be only one matching entry
+                    if (enumerator.moveNext()) {
+                        enumerator.get_current().deleteObject();
+                        clientContext.executeQueryAsync(function () {
+                            NotificationService.showSuccessMessage("CV Deleted", "CV deleted successfully");
+                            $scope.getCompanyStatus(index);
+                        }, onError);
+                    }
+                }, onError);
+            }
+
+            /** 
+             * Uploads and saves the CV selected
+             */
             $scope.submitCV = function (index) {
                 // check the file extension
                 if ($('#cv' + index).val().split('.')[1] != 'pdf') {
@@ -86,7 +100,7 @@
                     return;
                 }
 
-                NotificationService.showInfoMessage("CV is being uploaded","Please wait until the CV is uploaded", true);
+                NotificationService.showInfoMessage("CV is being uploaded", "Please wait until the CV is uploaded", true);
 
                 var hostClientContext = new SP.AppContextSite(clientContext, hostWebUrl);
                 var internshipList = hostClientContext.get_web().get_lists().getByTitle("CareersDayCVs");
@@ -137,7 +151,7 @@
                                     var changeItem = updateListItem(listItem.d.__metadata);
                                     changeItem.done(function (data, status, xhr) {
                                         fileInput.val("");
-                                        NotificationService.showSuccessMessage("CV Uploaded","Your CV uploaded successfully. Please verify by downloading the uploaded CV");
+                                        NotificationService.showSuccessMessage("CV Uploaded", "Your CV uploaded successfully. Please verify by downloading the uploaded CV");
 
                                         // Change the upload status
                                         $scope.getCompanyStatus(index);

@@ -13,7 +13,7 @@
                     $state.transitionTo("student");
                 }
                 else {
-                    alert("Unauthorized");
+                    alert("Unauthorized user");
                 }
 
                 stopInterval();

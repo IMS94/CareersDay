@@ -24,21 +24,25 @@
             <div class="panel-body">
                 <div class="container-fluid">
 
-                    <div class="table-responsive">
+                    <div class="alert alert-info" ng-show="data.cvs.length == 0">
+                        No CV has been submitted to your company yet.
+                    </div>
+
+                    <div class="table-responsive" ng-show="data.cvs.length != 0">
 
                         <table id="cvTable" class="table table-hover table-condensed table-striped display" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Student Email</th>
+                                    <th>Student Name</th>
                                     <th>CV</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <tr ng-repeat="cv in data.cvs">
-                                    <td>{{cv.email}}</td>
+                                    <td>{{cv.student.name}}</td>
                                     <td>
-                                        <a href="{{cv.link}}" target="_blank">Download</a>
+                                        <a href="{{cv.link}}" target="_blank">{{cv.file}}</a>
                                     </td>
                                 </tr>
                             </tbody>

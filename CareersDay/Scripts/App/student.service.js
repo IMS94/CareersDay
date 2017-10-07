@@ -4,7 +4,7 @@
         studentsLoaded: false,
         students: []
     };
-
+    
     factory.loadStudents = function (callback) {
         var clientContext = SP.ClientContext.get_current();
         var studentList = clientContext.get_web().get_lists().getByTitle("StudentList");

@@ -23,7 +23,11 @@
                             {{company.description}}
                         </p>
 
-                        <p ng-if="company.cvUploaded">CV Uploaded</p>
+                        <div ng-if="company.cvUploaded">
+                            <p>CV Uploaded</p>
+                            <a class="btn btn-primary" target="_blank" href="{{company.cvLink}}">Download</a>
+                        </div>
+
                         <p ng-if="!company.cvUploaded">CV Not Uploaded</p>
 
                         <div class="form-horizontal">
@@ -31,7 +35,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon{{$index}}">Upload CV </span>
                                     <input id="cv{{$index}}" accept=".pdf" type="file" class="form-control"
-                                             value="" name="cv{{$index}}" aria-describedby="basic-addon{{$index}}">
+                                           value="" name="cv{{$index}}" aria-describedby="basic-addon{{$index}}">
                                 </div>
                             </div>
 

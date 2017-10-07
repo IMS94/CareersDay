@@ -63,7 +63,10 @@
                     $scope.data.companies[index].cvUploaded = false;
                     while (enumerator.moveNext()) {
                         var tempCompany = enumerator.get_current().get_item("Company");
+                        console.debug(tempCompany);
+                        console.debug(enumerator.get_current().get_fieldValues());
                         $scope.data.companies[index].cvUploaded = true;
+                        $scope.data.companies[index].cvLink = enumerator.get_current().get_item("FileRef");
                     }
 
                     // Since this is a callback, $apply to appear changes in the view

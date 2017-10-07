@@ -43,10 +43,11 @@
 
                     $scope.data.companies[index].cvUploaded = false;
                     while (enumerator.moveNext()) {
-                        var tempCompany = enumerator.get_current().get_item("Company");
+                        var item = enumerator.get_current();
 
                         $scope.data.companies[index].cvUploaded = true;
-                        $scope.data.companies[index].cvLink = enumerator.get_current().get_item("FileRef");
+                        $scope.data.companies[index].cvLink = item.get_item("FileRef");
+                        $scope.data.companies[index].cvFile = item.get_item("FileLeafRef");
                     }
 
                     // Since this is a callback, $apply to appear changes in the view
@@ -60,7 +61,7 @@
              * Deletes the CV for company given by 'index'
              */
             $scope.deleteCV = function (index) {
-                if (!confirm("Are you sure you want to delete this CV?")) {
+                if (!confirm("Your CV will be deleted permenantly")) {
                     return;
                 }
                 console.log("StudentController: Deleting CV for company %s", $scope.data.companies[index].name);

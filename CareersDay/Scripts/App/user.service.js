@@ -54,6 +54,7 @@
         clientContext.executeQueryAsync(function () {
             console.log("UserService: User email %s fetched successfully", user.get_email());
 
+            console.log(user);
             factory.user = {
                 email: user.get_email(),
                 name: user.get_title()

@@ -3,21 +3,17 @@
 
         var redirectPromise = $interval(function () {
             if (userService.userLoaded) {
-                var userType = userService.getUserType();
-
-                switch (userType) {
-                    case "Admin":
-                        $state.transitionTo("admin");
-                        break;
-
-                    case "Company":
-                        $state.transitionTo("company");
-                        break;
-
-                    default:
-                        // Default user is considered as student
-                        $state.transitionTo("student");
-                        break;
+                if (userService.isAdmin()) {
+                    $state.transitionTo("admin");
+                }
+                else if (userService.isCompany()) {
+                    $state.transitionTo("company");
+                }
+                else if (userService.isStudent()) {
+                    $state.transitionTo("student");
+                }
+                else {
+                    alert("Unauthorized");
                 }
 
                 stopInterval();

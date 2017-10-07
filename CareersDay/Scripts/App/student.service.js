@@ -1,44 +1,44 @@
-﻿angular.module("careersDayApp").factory("companyService", function () {
+﻿angular.module("careersDayApp").factory("studentService", function () {
 
     var factory = {
-        companiesLoaded: false,
-        companies: []
+        studentsLoaded: false,
+        students: []
     };
 
-    factory.loadCompanies = function (callback) {
+    factory.loadStudents = function (callback) {
         var clientContext = SP.ClientContext.get_current();
-        var companyList = clientContext.get_web().get_lists().getByTitle("CompanyList");
+        var studentList = clientContext.get_web().get_lists().getByTitle("StudentList");
         var camlQuery = new SP.CamlQuery();
-        var collListItem = companyList.getItems(camlQuery);
+        var collListItem = studentList.getItems(camlQuery);
 
         clientContext.load(collListItem);
         clientContext.executeQueryAsync(function () {
-            console.log("Company list fetching successful");
+            console.log("Student list fetching successful");
             var listItemEnumerator = collListItem.getEnumerator();
 
-            var companies = [];
+            var students = [];
             while (listItemEnumerator.moveNext()) {
-                var company = listItemEnumerator.get_current();
-                //console.log(company.get_fieldValues());
-                companies.push({
-                    name: company.get_item('Title'),
-                    description: company.get_item('Bio')
+                var student = listItemEnumerator.get_current();
+                console.log(student.get_fieldValues());
+                students.push({
+                    email: student.get_item('Title'),
+                    name: student.get_item('Name1')
                 });
             }
 
-            callback(companies);
+            callback(students);
         }, onError);
-    };
+    }
 
-    factory.uploadCompanies = function (companies, callback) {
+    factory.uploadStudents = function (students, callback) {
         var clientContext = SP.ClientContext.get_current();
-        var companyList = clientContext.get_web().get_lists().getByTitle("CompanyList");
+        var studentList = clientContext.get_web().get_lists().getByTitle("StudentList");
         var camlQuery = new SP.CamlQuery();
-        var collListItem = companyList.getItems(camlQuery);
+        var collListItem = studentList.getItems(camlQuery);
 
         clientContext.load(collListItem);
         clientContext.executeQueryAsync(function () {
-            console.log("Deleting existing companies");
+            console.log("Deleting existing students");
             var listItemEnumerator = collListItem.getEnumerator();
 
             var tmpArray = [];
@@ -52,18 +52,18 @@
 
             // Now execute the delete operation and perform the add operation
             clientContext.executeQueryAsync(function () {
-                console.log("Adding new companies");
+                console.log("Adding new students");
                 // Add every element in the $scope.studentArray
-                for (var i in companies) {
+                for (var i in students) {
                     var itemCreationInfo = new SP.ListItemCreationInformation();
-                    var newItem = companyList.addItem(itemCreationInfo);
-                    newItem.set_item("Title", companies[i].name);
-                    newItem.set_item("Bio", companies[i].description);
+                    var newItem = studentList.addItem(itemCreationInfo);
+                    newItem.set_item("Title", students[i].email);
+                    newItem.set_item("Name1", students[i].name);
                     newItem.update();
                 }
 
                 clientContext.executeQueryAsync(function () {
-                    console.log("New companies added successfully");
+                    console.log("New students added successfully");
                     callback();
                 }, onError);
 
@@ -71,11 +71,11 @@
         });
     }
 
-    factory.loadCompanies(function (companies) {
-        console.log("Companies loaded");
-        console.log(companies);
-        factory.companies = companies;
-        factory.companiesLoaded = true;
+    factory.loadStudents(function (students) {
+        console.log("Students loaded");
+        console.log(students);
+        factory.students = students;
+        factory.studentsLoaded = true;
     });
 
     function onError(err) {

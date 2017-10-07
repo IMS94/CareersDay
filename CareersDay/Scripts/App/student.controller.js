@@ -5,6 +5,12 @@
                 $state.transitionTo("home");
             }
 
+            // Unauthorized ?
+            if (!userService.isStudent()) {
+                console.error("Not a student");
+                $state.transitionTo("home");
+            }
+
             $scope.data = {
                 user: userService.user,
                 companies: companyService.companies
@@ -18,7 +24,7 @@
              * Get the status (that is whether a CV for that company is uploaded or not)
              */
             $scope.getCompanyStatus = function (index) {
-                console.debug(hostWebUrl);
+                console.log(hostWebUrl);
                 var hostClientContext = new SP.AppContextSite(clientContext, hostWebUrl);
                 //var cvList = hostClientContext.get_web().get_lists();
                 var cvList = hostClientContext.get_web().get_lists().getByTitle("CareersDayCVs");
@@ -50,21 +56,21 @@
                     "<Eq><FieldRef Name='Email' /><Value Type='Text'>" + $scope.data.user.email + "</Value></Eq>" +
                     "<Eq><FieldRef Name='Company' /><Value Type='Text'>" + $scope.data.companies[index].name + "</Value></Eq>" +
                     "</And></Where></Query></View>";
-                console.debug(query);
+                console.log(query);
 
                 camlQuery.set_viewXml(query);
                 var items = cvList.getItems(camlQuery);
 
                 clientContext.load(items);
                 clientContext.executeQueryAsync(function () {
-                    console.debug("CV status request successful");
+                    console.log("CV status request successful");
                     var enumerator = items.getEnumerator();
 
                     $scope.data.companies[index].cvUploaded = false;
                     while (enumerator.moveNext()) {
                         var tempCompany = enumerator.get_current().get_item("Company");
-                        console.debug(tempCompany);
-                        console.debug(enumerator.get_current().get_fieldValues());
+                        console.log(tempCompany);
+                        console.log(enumerator.get_current().get_fieldValues());
                         $scope.data.companies[index].cvUploaded = true;
                         $scope.data.companies[index].cvLink = enumerator.get_current().get_item("FileRef");
                     }
@@ -131,7 +137,7 @@
                                     // Change the display name and title of the list item.
                                     var changeItem = updateListItem(listItem.d.__metadata);
                                     changeItem.done(function (data, status, xhr) {
-                                        console.debug("CV uploaded successfully");
+                                        console.log("CV uploaded successfully");
 
                                         // Change the upload status
                                         $scope.getCompanyStatus(index);

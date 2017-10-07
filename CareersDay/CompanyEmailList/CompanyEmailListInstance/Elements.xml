@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ListInstance Title="StudentList" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/StudentList" Description="My List Instance">
+  <ListInstance Title="CompanyEmailList" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/CompanyEmailList" Description="My List Instance">
     <Data>
       <Rows>
         <Row>
           <Field Name="Email">imesha.13@uomcse.lk</Field>
-          <Field Name="Name1">Imesha Sudasingha</Field>
+          <Field Name="CompanyName">WSO2</Field>
         </Row>
       </Rows>
     </Data>

@@ -16,14 +16,17 @@
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
 
     <!-- Add your JavaScript to the following file -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../Scripts/App/app.js"></script>
     <script type="text/javascript" src="../Scripts/App/user.service.js"></script>
     <script type="text/javascript" src="../Scripts/App/company.service.js"></script>
+    <script type="text/javascript" src="../Scripts/App/student.service.js"></script>
     <script type="text/javascript" src="../Scripts/App/home.controller.js"></script>
     <script type="text/javascript" src="../Scripts/App/student.controller.js"></script>
     <script type="text/javascript" src="../Scripts/App/admin.controller.js"></script>

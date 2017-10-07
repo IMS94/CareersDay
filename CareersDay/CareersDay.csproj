@@ -42,6 +42,9 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="CompanyEmailList\CompanyEmailListInstance\Elements.xml" />
+    <Content Include="CompanyEmailList\Elements.xml" />
+    <Content Include="CompanyEmailList\Schema.xml" />
     <Content Include="CompanyList\CompanyListInstance\Elements.xml" />
     <Content Include="CompanyList\Elements.xml" />
     <Content Include="CompanyList\Schema.xml" />
@@ -51,6 +54,9 @@
     <Content Include="Features\Feature2\Feature2.Template.xml">
       <DependentUpon>Feature2.feature</DependentUpon>
     </Content>
+    <Content Include="Features\Feature3\Feature3.Template.xml">
+      <DependentUpon>Feature3.feature</DependentUpon>
+    </Content>
     <Content Include="Images\magnify.gif" />
     <Content Include="Pages\student.html" />
     <Content Include="Pages\company.html" />
@@ -59,6 +65,7 @@
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\admin.controller.js" />
     <Content Include="Scripts\App\company.controller.js" />
+    <Content Include="Scripts\App\student.service.js" />
     <Content Include="Scripts\App\student.controller.js" />
     <Content Include="Scripts\App\user.service.js" />
     <Content Include="Scripts\App\company.service.js" />
@@ -69,6 +76,12 @@
     <Content Include="StudentList\Elements.xml" />
     <Content Include="StudentList\Schema.xml" />
     <Content Include="StudentList\StudentListInstance\Elements.xml" />
+    <None Include="CompanyEmailList\CompanyEmailListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5d58b3a0-29b9-4e07-87f7-b8c66bc0a514}</SharePointProjectItemId>
+    </None>
+    <None Include="CompanyEmailList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fa087d8c-971a-46de-9304-91d215ccb7fb}</SharePointProjectItemId>
+    </None>
     <None Include="CompanyList\CompanyListInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{68cc5933-5250-4e80-af5e-33b27abbdc2e}</SharePointProjectItemId>
     </None>
@@ -80,6 +93,9 @@
     </None>
     <None Include="Features\Feature2\Feature2.feature">
       <FeatureId>{08990fef-31de-486d-8116-9e37141093c2}</FeatureId>
+    </None>
+    <None Include="Features\Feature3\Feature3.feature">
+      <FeatureId>{a1d816e7-67bf-488e-8b32-bd4e6735ab1f}</FeatureId>
     </None>
     <None Include="packages.config" />
     <None Include="Pages\SharePointProjectItem.spdata">

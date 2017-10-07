@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<List xmlns:ows="Microsoft SharePoint" Title="StudentList" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/StudentList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+<List xmlns:ows="Microsoft SharePoint" Title="CompanyEmailList" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/CompanyEmailList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
   <MetaData>
     <ContentTypes>
 
 
-      <ContentType ID="0x010009cfedb9223d4d88a1d3b8e42a356661" Name="ListFieldsContentType">
+      <ContentType ID="0x0100a51e75672cd14bc09e58ebb0bf8acd14" Name="ListFieldsContentType">
         <FieldRefs>
           <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" />
-          <FieldRef ID="{67f78b1f-696c-43bb-8cd6-b16221ef94e1}" Name="Name1" />
+          <FieldRef ID="{9dbd7725-5afd-4386-9ea9-ca4dff9a9628}" Name="CompanyName" />
         </FieldRefs>
       </ContentType>
       <ContentTypeRef ID="0x01">
@@ -18,7 +18,7 @@
     <Fields>
 
       <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="Email" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" />
-      <Field Name="Name1" ID="{67f78b1f-696c-43bb-8cd6-b16221ef94e1}" DisplayName="Name" Type="Text" />
+      <Field Name="CompanyName" ID="{9dbd7725-5afd-4386-9ea9-ca4dff9a9628}" DisplayName="Company Name" Type="Text" />
     </Fields>
     <Views>
 
@@ -51,7 +51,7 @@
         <ViewFields>
 
           <FieldRef Name="LinkTitle"></FieldRef>
-          <FieldRef Name="Name1" />
+          <FieldRef Name="CompanyName" />
         </ViewFields>
         <Query>
           <OrderBy>

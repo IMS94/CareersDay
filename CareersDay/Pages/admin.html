@@ -1,1 +1,102 @@
-﻿You are an admin
+﻿<div class="container-fluid">
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+        <div class="panel panel-default">
+            <div class="panel-heading container-fluid">
+                <h4 class="panel-title">
+                    Companies
+                    <button class="btn btn-primary pull-right" data-toggle="collapse" href="#updateCompaniesDiv" aria-expanded="false" aria-controls="updateCompaniesDiv">
+                        Upload CSV
+                    </button>
+                </h4>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="container-fluid collapse" id="updateCompaniesDiv">
+                    <div class="form-horizontal">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Paste CSV</span>
+                                <textarea rows="5" class="form-control" id="companyInfo" ng-model="data.companyCSV" aria-describedby="basic-addon1"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-primary btn-block" ng-click="updateCompanies()">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid" ng-cloak>
+                    <table id="companiesTable" class="table table-hover display" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Company Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="company in data.companies">
+                                <td>{{company.name}}</td>
+                                <td>{{company.description}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading container-fluid">
+                <h4 class="panel-title">
+                    Students
+                    <button class="btn btn-primary pull-right" data-toggle="collapse" href="#updateStudentsDiv" aria-expanded="false" aria-controls="updateStudentsDiv">
+                        Upload CSV
+                    </button>
+                </h4>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="container-fluid collapse" id="updateStudentsDiv">
+                    <div class="form-horizontal">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon2">Paste CSV</span>
+                                <textarea rows="5" class="form-control" id="studentInfo" ng-model="data.studentCSV" aria-describedby="basic-addon2"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-primary btn-block" ng-click="updateStudents()">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid" ng-cloak>
+                    <table id="studentsTable" class="table table-hover display" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Student Email</th>
+                                <th>Student Name</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="student in data.students">
+                                <td>{{student.email}}</td>
+                                <td>{{student.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

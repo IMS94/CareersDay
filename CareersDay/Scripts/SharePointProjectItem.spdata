@@ -14,5 +14,6 @@
     <ProjectItemFile Source="App\admin.controller.js" Target="Scripts\App\" Type="ElementFile" />
     <ProjectItemFile Source="App\company.controller.js" Target="Scripts\App\" Type="ElementFile" />
     <ProjectItemFile Source="App\user.service.js" Target="Scripts\App\" Type="ElementFile" />
+    <ProjectItemFile Source="App\student.service.js" Target="Scripts\App\" Type="ElementFile" />
   </Files>
 </ProjectItem>

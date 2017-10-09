@@ -24,6 +24,8 @@
              * Get the status (that is whether a CV for that company is uploaded or not)
              */
             $scope.getCompanyStatus = function (index) {
+                console.log("StudentController: Requesting CV status for %s", $scope.data.companies[index].name);
+
                 var hostClientContext = new SP.AppContextSite(clientContext, hostWebUrl);
                 var cvList = hostClientContext.get_web().get_lists().getByTitle("CareersDayCVs");
 
@@ -134,7 +136,8 @@
                         // Get test values from the file input and text input page controls.
                         // The display name must be unique every time you run the example.
                         var fileInput = $('#cv' + id);
-                        var newName = $scope.data.user.email.split(".")[0] + $scope.data.user.email.split(".")[1].split("@")[0] + id;
+                        var newName = $scope.data.user.email.split(".").join("-").split("@")[0] + "_" +
+                            $scope.data.companies[id].name.split(".").join("-").split(" ").join("-");
 
                         // Initiate method calls using jQuery promises.
                         // Get the local file as an array buffer.

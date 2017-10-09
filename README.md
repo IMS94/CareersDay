@@ -24,6 +24,6 @@ companies thorugh thei logins. Later, companies will be able to see the CVs uplo
 
 ## Contributors
 
-- Imesha Sudasingha (me)
+- [Imesha Sudasingha](https://github.com/IMS94)
 
-Special Thanks to [Nadun Indunil](https://github.com/nadunindunil) and [Supub Abeysinghe](https://github.com/smb564)
+Special Thanks to [Nadun Indunil](https://github.com/nadunindunil) and [Supun Abeysinghe](https://github.com/smb564)

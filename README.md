@@ -1,5 +1,5 @@
-# Official CV Sharing Application for Careers Day, Department of Computer Science and Engineering, University of Moratuwa
-
+# CV Sharing Portal 
+for Careers Day of Department of Computer Science and Engineering, University of Moratuwa
 
 ## Overview
 

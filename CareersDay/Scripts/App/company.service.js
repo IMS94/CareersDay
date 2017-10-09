@@ -21,8 +21,8 @@
                 var company = listItemEnumerator.get_current();
                 //console.log(company.get_fieldValues());
                 companies.push({
-                    name: company.get_item('Title'),
-                    description: company.get_item('Bio')
+                    name: company.get_item('Company'),
+                    email: company.get_item('Email')
                 });
             }
 
@@ -57,8 +57,8 @@
                 for (var i in companies) {
                     var itemCreationInfo = new SP.ListItemCreationInformation();
                     var newItem = companyList.addItem(itemCreationInfo);
-                    newItem.set_item("Title", companies[i].name);
-                    newItem.set_item("Bio", companies[i].description);
+                    newItem.set_item("Email", companies[i].email);
+                    newItem.set_item("Company", companies[i].name);
                     newItem.update();
                 }
 

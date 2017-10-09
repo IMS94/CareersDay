@@ -20,8 +20,8 @@
                 var student = listItemEnumerator.get_current();
                 //console.log(student.get_fieldValues());
                 students.push({
-                    email: student.get_item('Title'),
-                    name: student.get_item('Name1')
+                    email: student.get_item('Email'),
+                    name: student.get_item('FullName')
                 });
             }
 
@@ -56,8 +56,8 @@
                 for (var i in students) {
                     var itemCreationInfo = new SP.ListItemCreationInformation();
                     var newItem = studentList.addItem(itemCreationInfo);
-                    newItem.set_item("Title", students[i].email);
-                    newItem.set_item("Name1", students[i].name);
+                    newItem.set_item("Email", students[i].email);
+                    newItem.set_item("FullName", students[i].name);
                     newItem.update();
                 }
 

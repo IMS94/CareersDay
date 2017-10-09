@@ -53,8 +53,7 @@
         clientContext.load(user);
         clientContext.executeQueryAsync(function () {
             console.log("UserService: User email %s fetched successfully", user.get_email());
-
-            console.log(user);
+            
             factory.user = {
                 email: user.get_email(),
                 name: user.get_title()
@@ -87,9 +86,8 @@
             var studentList = clientContext.get_web().get_lists().getByTitle("StudentList");
             var camlQuery = new SP.CamlQuery();
             var query = "<View><Query><Where>" +
-                "<Eq><FieldRef Name='Title' /><Value Type='Text'>" + factory.user.email + "</Value></Eq>" +
+                "<Eq><FieldRef Name='Email' /><Value Type='Text'>" + factory.user.email + "</Value></Eq>" +
                 "</Where></Query></View>";
-            console.log(query);
             camlQuery.set_viewXml(query);
             var entries = studentList.getItems(camlQuery);
 
@@ -105,6 +103,8 @@
                     };
 
                     userType = null;
+                } else {
+                    factory.user.name = enumerator.get_current().get_item("FullName");
                 }
 
                 factory.userLoaded = true;
@@ -112,13 +112,11 @@
             }, onError);
 
         } else if (userType === "Company") {
-            factory.user.company = factory.user.name;
-
             // Then, this user must be in the student list as well
             var companyList = clientContext.get_web().get_lists().getByTitle("CompanyList");
             var camlQuery = new SP.CamlQuery();
             var query = "<View><Query><Where>" +
-                "<Eq><FieldRef Name='Title' /><Value Type='Text'>" + factory.user.name + "</Value></Eq>" +
+                "<Eq><FieldRef Name='Email' /><Value Type='Text'>" + factory.user.email + "</Value></Eq>" +
                 "</Where></Query></View>";
             camlQuery.set_viewXml(query);
             var entries = companyList.getItems(camlQuery);
@@ -135,6 +133,8 @@
                     };
 
                     userType = null;
+                } else {
+                    factory.user.company = enumerator.get_current().get_item("Company");
                 }
 
                 factory.userLoaded = true;

@@ -22,18 +22,12 @@
                 <div class="panel-heading" role="tab" id="heading{{$index}}" ng-init="getCompanyStatus($index)">
                     <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                         href="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}" style="cursor:pointer">
-                        {{company.name}}
-
-                        <i ng-if="company.cvUploaded" class="glyphicon glyphicon-ok text-success pull-right"></i>
-
+                        {{company.name}} <i ng-if="company.cvUploaded" class="glyphicon glyphicon-ok text-success pull-right"></i>
                     </h4>
                 </div>
 
                 <div id="collapse{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index}}">
                     <div class="panel-body">
-                        <p class="well">
-                            {{company.description}}
-                        </p>
 
                         <div class="alert alert-success container-fluid" ng-if="company.cvUploaded">
                             <div class="col-md-11 col-sm-10 col-xs-9">

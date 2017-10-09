@@ -11,16 +11,13 @@
 
             $scope.data = {
                 user: userService.user,
-                company: {
-                    name: userService.user.name
-                },
                 cvs: []
             };
 
             var appWebUrl = userService.appWebUrl;
             var hostWebUrl = userService.hostWebUrl;
 
-            cvService.loadCVs(hostWebUrl, $scope.data.company.name, function (cvs) {
+            cvService.loadCVs(hostWebUrl, $scope.data.user.company, function (cvs) {
                 console.log("CompanyController: %d CVs Loaded", cvs.length);
                 $scope.data.cvs = cvs;
                 $scope.$apply();

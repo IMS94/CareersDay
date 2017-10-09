@@ -42,9 +42,6 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="CompanyEmailList\CompanyEmailListInstance\Elements.xml" />
-    <Content Include="CompanyEmailList\Elements.xml" />
-    <Content Include="CompanyEmailList\Schema.xml" />
     <Content Include="CompanyList\CompanyListInstance\Elements.xml" />
     <Content Include="CompanyList\Elements.xml" />
     <Content Include="CompanyList\Schema.xml" />
@@ -77,12 +74,6 @@
     <Content Include="StudentList\Elements.xml" />
     <Content Include="StudentList\Schema.xml" />
     <Content Include="StudentList\StudentListInstance\Elements.xml" />
-    <None Include="CompanyEmailList\CompanyEmailListInstance\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{5d58b3a0-29b9-4e07-87f7-b8c66bc0a514}</SharePointProjectItemId>
-    </None>
-    <None Include="CompanyEmailList\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{fa087d8c-971a-46de-9304-91d215ccb7fb}</SharePointProjectItemId>
-    </None>
     <None Include="CompanyList\CompanyListInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{68cc5933-5250-4e80-af5e-33b27abbdc2e}</SharePointProjectItemId>
     </None>

@@ -5,7 +5,7 @@
       <Rows>
         <Row>
           <Field Name="Email">imesha.13@uomcse.lk</Field>
-          <Field Name="Name1">Imesha Sudasingha</Field>
+          <Field Name="FullName">Imesha Sudasingha</Field>
         </Row>
       </Rows>
     </Data>

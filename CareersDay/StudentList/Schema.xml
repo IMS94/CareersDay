@@ -4,10 +4,25 @@
     <ContentTypes>
 
 
+
+
+
+
+
+
+
+
+
       <ContentType ID="0x010009cfedb9223d4d88a1d3b8e42a356661" Name="ListFieldsContentType">
         <FieldRefs>
-          <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" />
-          <FieldRef ID="{67f78b1f-696c-43bb-8cd6-b16221ef94e1}" Name="Name1" />
+
+
+
+
+
+
+          <FieldRef ID="{475c2610-c157-4b91-9e2d-6855031b3538}" Name="FullName" />
+          <FieldRef ID="{ba896a65-f393-4d51-b2b5-fcc5160b45d3}" Name="Email" />
         </FieldRefs>
       </ContentType>
       <ContentTypeRef ID="0x01">
@@ -17,10 +32,22 @@
     </ContentTypes>
     <Fields>
 
-      <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="Email" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" />
-      <Field Name="Name1" ID="{67f78b1f-696c-43bb-8cd6-b16221ef94e1}" DisplayName="Name" Type="Text" />
+
+
+
+
+
+
+      <Field ID="{475c2610-c157-4b91-9e2d-6855031b3538}" Name="FullName" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="FullName" Group="$Resources:core,Person_Event_Columns;" DisplayName="$Resources:core,Full_Name;" Type="Text" />
+      <Field Name="Email" ID="{ba896a65-f393-4d51-b2b5-fcc5160b45d3}" DisplayName="Email" Type="Text" />
     </Fields>
     <Views>
+
+
+
+
+
+
 
 
       <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
@@ -29,10 +56,16 @@
         <RowLimit Paged="TRUE">30</RowLimit>
         <ViewFields>
 
+
+
+
           <FieldRef Name="LinkTitleNoMenu"></FieldRef>
         </ViewFields>
         <Query>
           <OrderBy>
+
+
+
 
             <FieldRef Name="Modified" Ascending="FALSE"></FieldRef>
           </OrderBy>
@@ -50,11 +83,22 @@
         <RowLimit Paged="TRUE">30</RowLimit>
         <ViewFields>
 
+
+
+
+
+
+
+
           <FieldRef Name="LinkTitle"></FieldRef>
-          <FieldRef Name="Name1" />
+          <FieldRef Name="FullName" />
+          <FieldRef Name="Email" />
         </ViewFields>
         <Query>
           <OrderBy>
+
+
+
 
             <FieldRef Name="ID"></FieldRef>
           </OrderBy>

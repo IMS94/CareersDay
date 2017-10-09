@@ -7,12 +7,22 @@
 
 
 
+
+
+
+
+
+
       <ContentType ID="0x0100b243646649714eae93c009c5e5a0c3f8" Name="ListFieldsContentType">
         <FieldRefs>
 
 
-          <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" />
-          <FieldRef ID="{c8912f24-df51-413d-9cc5-6abec6831e38}" Name="Bio" />
+
+
+
+
+          <FieldRef ID="{038D1503-4629-40f6-ADAF-B47D1AB2D4FE}" Name="Company" />
+          <FieldRef ID="{da9f27e4-00b2-46ad-9151-a4caae69d293}" Name="Email" />
         </FieldRefs>
       </ContentType>
       <ContentTypeRef ID="0x01">
@@ -24,10 +34,18 @@
 
 
 
-      <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="Company Name" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" />
-      <Field Name="Bio" ID="{c8912f24-df51-413d-9cc5-6abec6831e38}" DisplayName="Bio" Type="Text" />
+
+
+
+
+      <Field ID="{038D1503-4629-40f6-ADAF-B47D1AB2D4FE}" Name="Company" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Company" Group="$Resources:core,Person_Event_Columns;" DisplayName="$Resources:core,Company;" Type="Text" Required="TRUE" />
+      <Field Name="Email" ID="{da9f27e4-00b2-46ad-9151-a4caae69d293}" DisplayName="Email" Type="Text" Required="TRUE" />
     </Fields>
     <Views>
+
+
+
+
 
 
 
@@ -39,10 +57,14 @@
         <ViewFields>
 
 
+
+
           <FieldRef Name="LinkTitleNoMenu"></FieldRef>
         </ViewFields>
         <Query>
           <OrderBy>
+
+
 
 
             <FieldRef Name="Modified" Ascending="FALSE"></FieldRef>
@@ -63,11 +85,19 @@
 
 
 
+
+
+
+
+
           <FieldRef Name="LinkTitle"></FieldRef>
-          <FieldRef Name="Bio" />
+          <FieldRef Name="Company" />
+          <FieldRef Name="Email" />
         </ViewFields>
         <Query>
           <OrderBy>
+
+
 
 
             <FieldRef Name="ID"></FieldRef>

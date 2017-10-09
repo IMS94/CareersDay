@@ -41,7 +41,7 @@
                     var parts = lines[i].split(",");
                     companies.push({
                         name: parts[0].trim(),
-                        description: parts[1].trim()
+                        email: parts[1].trim()
                     });
                 }
 

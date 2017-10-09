@@ -4,16 +4,16 @@
     <Data>
       <Rows>
         <Row>
-          <Field Name="Company Name">Sysco Labs</Field>
-          <Field Name="Bio">A Company</Field>
+          <Field Name="Company">Sysco Labs</Field>
+          <Field Name="Email">sysco@uomcse.lk</Field>
         </Row>
         <Row>
-          <Field Name="Company Name">Virtusa</Field>
-          <Field Name="Bio">A Company</Field>
+          <Field Name="Company">Virtusa</Field>
+          <Field Name="Email">virtusa@uomcse.lk</Field>
         </Row>
         <Row>
-          <Field Name="Company Name">WSO2</Field>
-          <Field Name="Bio">A Company</Field>
+          <Field Name="Company">WSO2</Field>
+          <Field Name="Email">wso2@uomcse.lk</Field>
         </Row>
       </Rows>
     </Data>
